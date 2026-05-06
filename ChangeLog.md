@@ -1,5 +1,8 @@
 # Changelog
 
+## Version [6.3.0](https://github.com/cedx/setup-ant/compare/v6.2.0...v6.3.0)
+- Removed the module's `DefaultCommandPrefix` in favor of a hard-coded command prefix.
+
 ## Version [6.2.0](https://github.com/cedx/setup-ant/compare/v6.1.0...v6.2.0)
 - Added [Ant](https://ant.apache.org) 1.10.17 to the supported releases.
 
