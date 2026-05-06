@@ -8,7 +8,7 @@ using module ../Release.psm1
 .OUTPUTS
 	The release corresponding to the specified constraint, or `$null` if not found.
 #>
-function Find-Release {
+function Find-AntRelease {
 	[CmdletBinding()]
 	[OutputType([Release])]
 	param (

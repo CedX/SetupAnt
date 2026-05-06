@@ -1,7 +1,7 @@
 @{
-	DefaultCommandPrefix = "Ant"
 	ModuleVersion = "6.2.0"
 	PowerShellVersion = "7.4"
+	RootModule = "src/Main.psm1"
 
 	Author = "Cédric Belin <cedx@outlook.com>"
 	CompanyName = "Cedric-Belin.fr"
@@ -14,19 +14,11 @@
 	VariablesToExport = @()
 
 	FunctionsToExport = @(
-		"Find-Release"
-		"Get-Release"
-		"Install-Release"
-		"New-Release"
-		"Test-Release"
-	)
-
-	NestedModules = @(
-		"src/Cmdlets/Find-Release.psm1"
-		"src/Cmdlets/Get-Release.psm1"
-		"src/Cmdlets/Install-Release.psm1"
-		"src/Cmdlets/New-Release.psm1"
-		"src/Cmdlets/Test-Release.psm1"
+		"Find-AntRelease"
+		"Get-AntRelease"
+		"Install-AntRelease"
+		"New-AntRelease"
+		"Test-AntRelease"
 	)
 
 	PrivateData = @{

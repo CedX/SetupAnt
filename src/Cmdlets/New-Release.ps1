@@ -9,7 +9,7 @@ using module ../Release.psm1
 .OUTPUTS
 	The newly created release.
 #>
-function New-Release {
+function New-AntRelease {
 	[CmdletBinding()]
 	[OutputType([Release])]
 	[SuppressMessage("PSUseShouldProcessForStateChangingFunctions", "")]
