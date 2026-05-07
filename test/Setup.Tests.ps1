@@ -20,7 +20,7 @@ Describe "Setup" {
 			$path = [Setup]::new($latestRelease).Download($true)
 			Join-Path $path "bin/$($IsWindows ? "ant.cmd" : "ant")" | Should -Exist
 
-			$jars = Get-ChildItem (Join-Path $path "lib/*.jar") -File
+			$jars = Get-ChildItem (Join-Path $path lib) -File -Filter *.jar
 			$jars.Where{ $_.BaseName.StartsWith("ivy-") } | Should -HaveCount 1
 		}
 	}
