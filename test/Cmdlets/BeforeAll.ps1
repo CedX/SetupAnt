@@ -1,5 +1,5 @@
 using namespace System.Diagnostics.CodeAnalysis
-Import-Module "$PSScriptRoot/../../SetupAnt.psd1"
+using module ../../SetupAnt.psd1
 
 [SuppressMessage("PSUseDeclaredVarsMoreThanAssignments", "")]
 $existingRelease = New-AntRelease "1.10.17"
