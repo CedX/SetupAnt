@@ -15,7 +15,7 @@ class Release {
 		The version number.
 	#>
 	[ValidateNotNull()]
-	[version] $Version
+	[semver] $Version
 
 	<#
 	.SYNOPSIS
@@ -24,7 +24,7 @@ class Release {
 		The version number.
 	#>
 	Release([string] $Version) {
-		$this.Version = [version] $Version
+		$this.Version = [semver] $Version
 	}
 
 	<#
@@ -33,7 +33,7 @@ class Release {
 	.PARAMETER Version
 		The version number.
 	#>
-	Release([version] $Version) {
+	Release([semver] $Version) {
 		$this.Version = $Version
 	}
 
@@ -131,7 +131,7 @@ class Release {
 	.OUTPUTS
 		The release corresponding to the specified version, or `$null` if not found.
 	#>
-	static [Release] Get([version] $Version) {
+	static [Release] Get([semver] $Version) {
 		$releases = [Release]::Data.Where({ $_.Version -eq $Version }, "First")
 		return $releases ? $releases[0] : $null
 	}

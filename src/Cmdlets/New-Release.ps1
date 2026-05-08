@@ -16,7 +16,7 @@ function New-AntRelease {
 	param (
 		# The version number.
 		[Parameter(Mandatory, Position = 0, ValueFromPipeline)]
-		[version] $Version
+		[semver] $Version
 	)
 
 	process {
