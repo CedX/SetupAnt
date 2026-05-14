@@ -42,7 +42,7 @@ class Release {
 		Initializes the class.
 	#>
 	static Release() {
-		[Release]::Data = foreach ($release in (Import-PowerShellDataFile "$PSScriptRoot/ReleaseData.psd1").Releases) { [Release] $release }
+		[Release]::Data = (Import-PowerShellDataFile "$PSScriptRoot/ReleaseData.psd1").Releases.ForEach{ [Release] $_ }
 	}
 
 	<#
