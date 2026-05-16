@@ -12,8 +12,8 @@ Allowed values are:
 - a version specification: `<=1`, `>1.10`, etc.
 
 > [!NOTE]
-> The version constraint uses a very basic [syntax and algorithm](https://github.com/cedx/setup-ant/blob/main/src/Release.psm1#L97), but it should suffice in most cases.  
-> If this isn't enough, feel free to [open an issue](https://github.com/cedx/setup-hashlink/issues).
+> The version constraint uses a very basic [syntax and algorithm](https://github.com/CedX/SetupAnt/blob/main/src/Release.psm1#L97), but it should suffice in most cases.  
+> If this isn't enough, feel free to [open an issue](https://github.com/CedX/SetupHashLink/issues).
 
 ## **optional-tasks**: boolean
 By default, the external libraries required by each of the [optional tasks](https://ant.apache.org/manual/install.html#optionalTasks) are not installed.

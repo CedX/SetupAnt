@@ -23,9 +23,9 @@
 
 	PrivateData = @{
 		PSData = @{
-			LicenseUri = "https://github.com/cedx/setup-ant/blob/main/License.md"
-			ProjectUri = "https://github.com/cedx/setup-ant"
-			ReleaseNotes = "https://github.com/cedx/setup-ant/releases"
+			LicenseUri = "https://github.com/CedX/SetupAnt/blob/main/License.md"
+			ProjectUri = "https://github.com/CedX/SetupAnt"
+			ReleaseNotes = "https://github.com/CedX/SetupAnt/releases"
 			Tags = "actions", "ant", "ci", "ivy", "java"
 		}
 	}

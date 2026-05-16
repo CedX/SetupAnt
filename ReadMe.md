@@ -2,12 +2,12 @@
 Set up your [GitHub Actions](https://docs.github.com/en/actions) workflow with a specific version of [Apache Ant](https://ant.apache.org).
 
 ## Documentation
-- [User guide](https://github.com/cedx/setup-ant/tree/main/docs)
-- [Examples](https://github.com/cedx/setup-ant/tree/main/example)
+- [User guide](https://github.com/CedX/SetupAnt/tree/main/docs)
+- [Examples](https://github.com/CedX/SetupAnt/tree/main/example)
 
 ## Development
-- [Git repository](https://github.com/cedx/setup-ant)
-- [Submit an issue](https://github.com/cedx/setup-ant/issues)
+- [Git repository](https://github.com/CedX/SetupAnt)
+- [Submit an issue](https://github.com/CedX/SetupAnt/issues)
 
 ## License
-[Setup Ant](https://github.com/cedx/setup-ant) is distributed under the MIT License.
+[Setup Ant](https://github.com/CedX/SetupAnt) is distributed under the MIT License.

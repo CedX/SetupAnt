@@ -11,7 +11,7 @@ jobs:
         with:
           distribution: temurin
           java-version: 25
-      - uses: cedx/setup-ant@v6
+      - uses: cedx/SetupAnt@v6
         with:
           optional-tasks: true
           version: =1.10.17

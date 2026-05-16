@@ -33,7 +33,7 @@ jobs:
           distribution: temurin
           java-version: 25
       - name: Set up Ant
-        uses: cedx/setup-ant@main
+        uses: cedx/SetupAnt@main
         with:
           optional-tasks: true
       - run: ant -version

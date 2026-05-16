@@ -10,12 +10,12 @@ Setup Apache Ant in a workflow:
 
 ```yaml
 steps:
-  - uses: cedx/setup-ant@v6
+  - uses: cedx/SetupAnt@v6
   - run: ant -version
 ```
 
 > [!NOTE]
-> A sample workflow can be found in this [workflow.yaml](https://github.com/cedx/setup-ant/blob/main/example/workflow.yaml) file.
+> A sample workflow can be found in this [workflow.yaml](https://github.com/CedX/SetupAnt/blob/main/example/workflow.yaml) file.
 
 ## Usage
 - [Inputs](Inputs.md)
