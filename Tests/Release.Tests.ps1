@@ -1,5 +1,5 @@
 using namespace System.Diagnostics.CodeAnalysis
-using module ../src/Release.psm1
+using module ../Sources/Release.psm1
 
 <#
 .SYNOPSIS
