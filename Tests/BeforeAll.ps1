@@ -1,5 +1,5 @@
 using namespace System.Diagnostics.CodeAnalysis
-using module ../../SetupAnt.psd1
+using module ../SetupAnt.psd1
 
 [SuppressMessage("PSUseDeclaredVarsMoreThanAssignments", "")]
 $existingRelease = New-AntRelease "1.10.17"
