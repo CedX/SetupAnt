@@ -73,7 +73,7 @@ function Install-AntRelease {
 	)
 
 	process {
-		$release = $PSCmdlet.ParameterSetName -eq "InputObject" ? $InputObject : [Release]::Find($Constraint)
+		$release = $InputObject ? $InputObject : [Release]::Find($Constraint)
 		if (${release}?.Exists()) { [Setup]::new($release).Install($OptionalTasks) }
 		else { Write-Error "No release matches the specified version constraint." -Category ObjectNotFound }
 	}
@@ -126,7 +126,7 @@ function Test-AntRelease {
 	)
 
 	process {
-		$release = $PSCmdlet.ParameterSetName -eq "InputObject" ? $InputObject : [Release] $Version
+		$release = $InputObject ? $InputObject : [Release] $Version
 		$release.Exists()
 	}
 }
