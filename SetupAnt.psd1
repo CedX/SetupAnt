@@ -1,4 +1,5 @@
 @{
+	DefaultCommandPrefix = "Ant"
 	ModuleVersion = "6.3.0"
 	PowerShellVersion = "7.4"
 	RootModule = "Sources/Main.psm1"
@@ -14,11 +15,11 @@
 	VariablesToExport = @()
 
 	FunctionsToExport = @(
-		"Find-AntRelease"
-		"Get-AntRelease"
-		"Install-AntRelease"
-		"New-AntRelease"
-		"Test-AntRelease"
+		"Find-Release"
+		"Get-Release"
+		"Install-Release"
+		"New-Release"
+		"Test-Release"
 	)
 
 	PrivateData = @{
