@@ -1,0 +1,25 @@
+using namespace System.Diagnostics.CodeAnalysis
+using module ./Release.psm1
+
+<#
+.SYNOPSIS
+	Creates a new release.
+.INPUTS
+	The version number.
+.OUTPUTS
+	The newly created release.
+#>
+function New-Release {
+	[CmdletBinding()]
+	[OutputType([Release])]
+	[SuppressMessage("PSUseShouldProcessForStateChangingFunctions", "")]
+	param (
+		# The version number.
+		[Parameter(Mandatory, Position = 0, ValueFromPipeline)]
+		[semver] $Version
+	)
+
+	process {
+		[Release]::new($Version)
+	}
+}
