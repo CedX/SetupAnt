@@ -19,11 +19,11 @@ Describe "Release" {
 
 	Context "Exists" {
 		It "should return `$true if the release exists" {
-			$existingRelease.Exists() | Should -BeTrue
+			$existingRelease.Exists() | Should-BeTrue
 		}
 
 		It "should return `$false if the release does not exist" {
-			$nonExistingRelease.Exists() | Should -BeFalse
+			$nonExistingRelease.Exists() | Should-BeFalse
 		}
 	}
 
