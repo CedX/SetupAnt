@@ -18,18 +18,18 @@ Describe "Setup" {
 	Context "Download" {
 		It "should properly download and extract Apache Ant" {
 			$path = [Setup]::new($latestRelease).Download($true)
-			Join-Path $path "bin/$($IsWindows ? "ant.cmd" : "ant")" | Should -Exist
+			Should-BeTrue (Join-Path $path "bin/$($IsWindows ? "ant.cmd" : "ant")" | Test-Path)
 
 			$jars = Get-ChildItem (Join-Path $path lib) -File -Filter *.jar
-			$jars.Where{ $_.BaseName.StartsWith("ivy-") } | Should -HaveCount 1
+			Should-Be 1 $jars.Where{ $_.BaseName.StartsWith("ivy-") }.Count
 		}
 	}
 
 	Context "Install" {
 		It "should add the Ant directory to the PATH environment variable" {
 			$path = [Setup]::new($latestRelease).Install($false)
-			$Env:ANT_HOME | Should -BeExactly $path
-			$Env:PATH | Should -BeLikeExactly "*$path*"
+			Should-BeString $path $Env:ANT_HOME -CaseSensitive
+			Should-BeLikeString "*$path*" $Env:PATH -CaseSensitive
 		}
 	}
 }

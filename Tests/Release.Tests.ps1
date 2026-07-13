@@ -19,50 +19,50 @@ Describe "Release" {
 
 	Context "Exists" {
 		It "should return `$true if the release exists" {
-			$existingRelease.Exists() | Should-BeTrue
+			Should-BeTrue $existingRelease.Exists()
 		}
 
 		It "should return `$false if the release does not exist" {
-			$nonExistingRelease.Exists() | Should-BeFalse
+			Should-BeFalse $nonExistingRelease.Exists()
 		}
 	}
 
 	Context "Url" {
 		It "should return the URL of the Ant archive" {
-			$existingRelease.Url() | Should -BeExactly "https://downloads.apache.org/ant/binaries/apache-ant-1.10.17-bin.zip"
-			$nonExistingRelease.Url() | Should -BeExactly "https://archive.apache.org/dist/ant/binaries/apache-ant-666.6.6-bin.zip"
+			Should-BeString "https://downloads.apache.org/ant/binaries/apache-ant-1.10.17-bin.zip" $existingRelease.Url().ToString() -CaseSensitive
+			Should-BeString "https://archive.apache.org/dist/ant/binaries/apache-ant-666.6.6-bin.zip" $nonExistingRelease.Url().ToString() -CaseSensitive
 		}
 	}
 
 	Context "Find" {
 		It "should return `$null if no release matches the version constraint" {
-			[Release]::Find($nonExistingRelease.Version.ToString()) | Should -BeNullOrEmpty
-			[Release]::Find("2") | Should -BeNullOrEmpty
-			[Release]::Find(">1.10.17") | Should -BeNullOrEmpty
+			Should-BeNull ([Release]::Find($nonExistingRelease.Version.ToString()))
+			Should-BeNull ([Release]::Find("2"))
+			Should-BeNull ([Release]::Find(">1.10.17"))
 		}
 
 		It "should return the release corresponding to the version constraint if it exists" {
-			[Release]::Find("latest") | Should -Be $latestRelease
-			[Release]::Find("*") | Should -Be $latestRelease
-			[Release]::Find("1") | Should -Be $latestRelease
+			Should-BeSame $latestRelease ([Release]::Find("latest"))
+			Should-BeSame $latestRelease ([Release]::Find("*"))
+			Should-BeSame $latestRelease ([Release]::Find("1"))
 
-			[Release]::Find("=1.8.2") | Should -Be ([Release] "1.8.2")
-			[Release]::Find("<1.10") | Should -Be ([Release] "1.9.16")
-			[Release]::Find("<=1.10") | Should -Be ([Release] "1.10.0")
+			Should-Be ([Release] "1.8.2") ([Release]::Find("=1.8.2"))
+			Should-Be ([Release] "1.9.16") ([Release]::Find("<1.10"))
+			Should-Be ([Release] "1.10.0") ([Release]::Find("<=1.10"))
 		}
 
 		It "should throw if the version constraint is invalid" -ForEach "abc", "?1.10" {
-			{ [Release]::Find($_) } | Should -Throw
+			Should-Throw -ScriptBlock { [Release]::Find($_) }
 		}
 	}
 
 	Context "Get" {
 		It "should return `$null if no release matches to the version number" {
-			[Release]::Get($nonExistingRelease.Version) | Should -BeNullOrEmpty
+			Should-BeNull ([Release]::Get($nonExistingRelease.Version))
 		}
 
 		It "should return the release corresponding to the version number if it exists" {
-			[Release]::Get("1.8.2")?.Version | Should -Be ([semver] "1.8.2")
+			Should-Be ([semver] "1.8.2") ([Release]::Get("1.8.2")?.Version)
 		}
 	}
 }

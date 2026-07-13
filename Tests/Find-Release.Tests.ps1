@@ -6,21 +6,21 @@ Describe "Find-Release" {
 	BeforeAll { . "$PSScriptRoot/BeforeAll.ps1" }
 
 	It "should return `$null if no release matches the version constraint" {
-		Find-AntRelease $nonExistingRelease.Version | Should -BeNullOrEmpty
+		Should-BeNull (Find-AntRelease $nonExistingRelease.Version)
 	}
 
 	It "should return the release corresponding to the version constraint if it exists" {
-		Find-AntRelease "latest" | Should -Be $latestRelease
-		Find-AntRelease "*" | Should -Be $latestRelease
-		Find-AntRelease "1" | Should -Be $latestRelease
-		Find-AntRelease "2" | Should -BeNullOrEmpty
-		(Find-AntRelease ">1.10.17")?.Version | Should -BeNullOrEmpty
-		(Find-AntRelease "=1.8.2")?.Version | Should -Be "1.8.2"
-		(Find-AntRelease "<1.10")?.Version | Should -Be "1.9.16"
-		(Find-AntRelease "<=1.10")?.Version | Should -Be "1.10.0"
+		Should-BeSame $latestRelease (Find-AntRelease "latest")
+		Should-BeSame $latestRelease (Find-AntRelease "*")
+		Should-BeSame $latestRelease (Find-AntRelease "1")
+		Should-BeNull (Find-AntRelease "2")
+		Should-BeNull (Find-AntRelease ">1.10.17")?.Version
+		Should-Be "1.8.2" (Find-AntRelease "=1.8.2")?.Version
+		Should-Be "1.9.16" (Find-AntRelease "<1.10")?.Version
+		Should-Be "1.10.0" (Find-AntRelease "<=1.10")?.Version
 	}
 
 	It "should throw if the version constraint is invalid" -ForEach "abc", "?1.10" {
-		{ Find-AntRelease $_ -ErrorAction Stop } | Should -Throw
+		Should-Throw -ScriptBlock { Find-AntRelease $_ -ErrorAction Stop }
 	}
 }
