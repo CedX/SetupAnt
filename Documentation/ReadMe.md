@@ -10,7 +10,7 @@ Setup Apache Ant in a workflow:
 
 ```yaml
 steps:
-  - uses: cedx/SetupAnt@v6
+  - uses: CedX/SetupAnt@v6
   - run: ant -version
 ```
 

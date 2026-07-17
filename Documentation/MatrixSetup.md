@@ -16,7 +16,7 @@ jobs:
         with:
           distribution: temurin
           java-version: 25
-      - uses: cedx/SetupAnt@v6
+      - uses: CedX/SetupAnt@v6
         with:
           optional-tasks: true
           version: ${{matrix.version}}
