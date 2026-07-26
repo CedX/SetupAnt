@@ -7,13 +7,13 @@ using module ../Sources/Release.psm1
 #>
 Describe "Release" {
 	BeforeAll {
-		[SuppressMessage("PSUseDeclaredVarsMoreThanAssignments", "")]
+		[SuppressMessage("PSUseDeclaredVarsMoreThanAssignments", "existingRelease")]
 		$existingRelease = [Release] "1.10.17"
 
-		[SuppressMessage("PSUseDeclaredVarsMoreThanAssignments", "")]
+		[SuppressMessage("PSUseDeclaredVarsMoreThanAssignments", "latestRelease")]
 		$latestRelease = [Release]::Latest()
 
-		[SuppressMessage("PSUseDeclaredVarsMoreThanAssignments", "")]
+		[SuppressMessage("PSUseDeclaredVarsMoreThanAssignments", "nonExistingRelease")]
 		$nonExistingRelease = [Release] "666.6.6"
 	}
 
