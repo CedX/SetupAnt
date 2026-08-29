@@ -1,6 +1,6 @@
 @{
 	DefaultCommandPrefix = "Ant"
-	ModuleVersion = "6.3.0"
+	ModuleVersion = "7.0.0"
 	PowerShellVersion = "7.6"
 	RootModule = "Sources/Main.psm1"
 
