@@ -5,7 +5,7 @@ $ErrorActionPreference = "Stop"
 $PSNativeCommandUseErrorActionPreference = $true
 
 $release = Find-AntRelease ($Env:SETUP_ANT_VERSION ? $Env:SETUP_ANT_VERSION : "Latest")
-if (-not $release) { throw "No release matches the specified version constraint." }
+if (-not $release) { Write-Error "No release matches the specified version constraint."; exit 1 }
 
 $optionalTasks = $Env:SETUP_ANT_OPTIONAL_TASKS -eq "true"
 $path = Install-AntRelease -InputObject $release -OptionalTasks:$optionalTasks

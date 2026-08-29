@@ -8,7 +8,7 @@ jobs:
     runs-on: ${{matrix.platform}}
     strategy:
       matrix:
-        platform: [ubuntu-latest, windows-latest]
+        platform: [macos-latest, ubuntu-latest, windows-latest]
         version: [<=1.9, latest]
     steps:
       - uses: actions/checkout@v5
