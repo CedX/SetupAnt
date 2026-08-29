@@ -3,7 +3,7 @@ Setup multiple versions of [Apache Ant](https://ant.apache.org) on multiple oper
 
 ```yaml
 jobs:
-  test:
+  Test:
     name: Apache Ant ${{matrix.version}} on ${{matrix.platform}}
     runs-on: ${{matrix.platform}}
     strategy:

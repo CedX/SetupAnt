@@ -3,7 +3,7 @@ Set up a specific version of [Apache Ant](https://ant.apache.org):
 
 ```yaml
 jobs:
-  test:
+  Test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
