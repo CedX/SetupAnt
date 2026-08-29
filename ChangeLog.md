@@ -1,5 +1,11 @@
 # Changelog
 
+## Version [7.0.0](https://github.com/CedX/SetupAnt/compare/v6.3.0...v7.0.0)
+- Breaking change: raised the required [PowerShell](https://learn.microsoft.com/en-us/powershell) version.
+- Breaking change: renamed the action repository to `CedX/SetupAnt`.
+- Restored the module's `DefaultCommandPrefix`.
+- Optimized the packaging.
+
 ## Version [6.3.0](https://github.com/CedX/SetupAnt/compare/v6.2.0...v6.3.0)
 - Removed the module's `DefaultCommandPrefix` in favor of a hard-coded command prefix.
 

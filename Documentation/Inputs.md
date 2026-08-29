@@ -13,7 +13,7 @@ Allowed values are:
 
 > [!NOTE]
 > The version constraint uses a very basic [syntax and algorithm](https://github.com/CedX/SetupAnt/blob/main/Sources/Release.psm1#L97), but it should suffice in most cases.  
-> If this isn't enough, feel free to [open an issue](https://github.com/CedX/SetupHashLink/issues).
+> If this isn't enough, feel free to [open an issue](https://github.com/CedX/SetupAnt/issues).
 
 ## **optional-tasks**: boolean
 By default, the external libraries required by each of the [optional tasks](https://ant.apache.org/manual/install.html#optionalTasks) are not installed.
