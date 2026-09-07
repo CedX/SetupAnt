@@ -14,6 +14,6 @@ jobs:
       - uses: CedX/SetupAnt@v7
         with:
           optional-tasks: true
-          version: =1.10.17
+          version: =1.10.18
       - run: ant -version
 ```

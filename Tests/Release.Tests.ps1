@@ -8,7 +8,7 @@ using module ../Sources/Release.psm1
 Describe "Release" {
 	BeforeAll {
 		[SuppressMessage("PSUseDeclaredVarsMoreThanAssignments", "existingRelease")]
-		$existingRelease = [Release] "1.10.17"
+		$existingRelease = [Release] "1.10.18"
 
 		[SuppressMessage("PSUseDeclaredVarsMoreThanAssignments", "latestRelease")]
 		$latestRelease = [Release]::Latest()
@@ -29,7 +29,7 @@ Describe "Release" {
 
 	Context "Url" {
 		It "should return the URL of the Ant archive" {
-			Should-BeString "https://downloads.apache.org/ant/binaries/apache-ant-1.10.17-bin.zip" $existingRelease.Url().ToString() -CaseSensitive
+			Should-BeString "https://downloads.apache.org/ant/binaries/apache-ant-1.10.18-bin.zip" $existingRelease.Url().ToString() -CaseSensitive
 			Should-BeString "https://archive.apache.org/dist/ant/binaries/apache-ant-666.6.6-bin.zip" $nonExistingRelease.Url().ToString() -CaseSensitive
 		}
 	}
@@ -38,7 +38,7 @@ Describe "Release" {
 		It "should return `$null if no release matches the version constraint" {
 			Should-BeNull ([Release]::Find($nonExistingRelease.Version.ToString()))
 			Should-BeNull ([Release]::Find("2"))
-			Should-BeNull ([Release]::Find(">1.10.17"))
+			Should-BeNull ([Release]::Find(">1.10.18"))
 		}
 
 		It "should return the release corresponding to the version constraint if it exists" {
@@ -83,7 +83,7 @@ Describe "Find-Release" {
 		Should-BeSame $latestRelease (Find-AntRelease "*")
 		Should-BeSame $latestRelease (Find-AntRelease "1")
 		Should-BeNull (Find-AntRelease "2")
-		Should-BeNull (Find-AntRelease ">1.10.17")?.Version
+		Should-BeNull (Find-AntRelease ">1.10.18")?.Version
 		Should-Be "1.8.2" (Find-AntRelease "=1.8.2")?.Version
 		Should-Be "1.9.16" (Find-AntRelease "<1.10")?.Version
 		Should-Be "1.10.0" (Find-AntRelease "<=1.10")?.Version
