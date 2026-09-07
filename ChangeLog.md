@@ -1,5 +1,8 @@
 # Changelog
 
+## Version [7.1.0](https://github.com/CedX/SetupAnt/compare/v7.0.0...v7.1.0)
+- Added [Ant](https://ant.apache.org) 1.10.18 to the supported releases.
+
 ## Version [7.0.0](https://github.com/CedX/SetupAnt/compare/v6.3.0...v7.0.0)
 - Breaking change: raised the required [PowerShell](https://learn.microsoft.com/en-us/powershell) version.
 - Breaking change: renamed the action repository to `CedX/SetupAnt`.
