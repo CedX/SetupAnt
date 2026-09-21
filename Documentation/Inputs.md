@@ -21,6 +21,6 @@ It's up to you to ensure that these libraries are properly added to Ant's class 
 
 You can automate this installation process by setting the `optional-tasks` input to `true`. This will run the following command after Ant has been set up:
 
-```shell
+```powershell
 ant -buildfile fetch.xml -Ddest=system
 ```
