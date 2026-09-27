@@ -29,6 +29,8 @@
 		<Compile Include="ReleaseData.fs" />
 		<Compile Include="Release.fs" />
 		<Compile Include="Cmdlets/Find-Release.fs" />
+		<Compile Include="Cmdlets/Get-Release.fs" />
+		<Compile Include="Cmdlets/Install-Release.fs" />
 		<Compile Include="Cmdlets/New-Release.fs" />
 		<Compile Include="Cmdlets/Test-Release.fs" />
 	</ItemGroup>

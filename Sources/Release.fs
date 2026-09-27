@@ -26,7 +26,7 @@ type Release =
 module Release =
 
   /// The regular expression used to check if a version constraint represents the latest release.
-  let private latestReleasePattern = Regex @"^(\*|latest)$"
+  let internal LatestReleasePattern = Regex(@"^(\*|Latest)$", RegexOptions.IgnoreCase)
 
   /// Gets a value indicating whether a release with the specified version exists.
   let exists (version: SemanticVersion): bool =
