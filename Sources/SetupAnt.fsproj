@@ -26,5 +26,7 @@
 
 	<ItemGroup>
 		<Compile Include="ReleaseData.fs" />
+		<Compile Include="Release.fs" />
+		<Compile Include="Cmdlets/Find-Release.fs" />
 	</ItemGroup>
 </Project>
