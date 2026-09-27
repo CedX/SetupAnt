@@ -4,50 +4,6 @@ using module ./Setup.psm1
 
 <#
 .SYNOPSIS
-	Finds a release that matches the specified version constraint.
-.INPUTS
-	The version constraint.
-.OUTPUTS
-	The release corresponding to the specified constraint, or `$null` if not found.
-#>
-function Find-Release {
-	[CmdletBinding()]
-	[OutputType([Release])]
-	param (
-		# The version constraint.
-		[Parameter(Mandatory, Position = 1, ValueFromPipeline)]
-		[string] $Constraint
-	)
-
-	process {
-		[Release]::Find($Constraint)
-	}
-}
-
-<#
-.SYNOPSIS
-	Gets the release corresponding to the specified version.
-.INPUTS
-	A string that contains a version number.
-.OUTPUTS
-	The release corresponding to the specified version, or `$null` if not found.
-#>
-function Get-Release {
-	[CmdletBinding()]
-	[OutputType([Release])]
-	param (
-		# The version number. Use `*` or `Latest` to get the latest release.
-		[Parameter(Mandatory, Position = 1, ValueFromPipeline)]
-		[string] $Version
-	)
-
-	process {
-		$Version -in "*", "Latest" ? [Release]::Latest() : [Release]::Get($Version)
-	}
-}
-
-<#
-.SYNOPSIS
 	Installs Apache Ant, after downloading it.
 .INPUTS
 	[string] The version constraint of the release to be installed.

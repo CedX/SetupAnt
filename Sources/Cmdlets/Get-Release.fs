@@ -4,6 +4,7 @@ open Belin.SetupAnt
 open System.Management.Automation
 
 /// Gets the release corresponding to the specified version.
+/// Returns `null` if not found.
 [<Cmdlet(VerbsCommon.Get, "Release")>]
 [<OutputType(typeof<Release>)>]
 type GetReleaseCommand() =
@@ -16,11 +17,7 @@ type GetReleaseCommand() =
   /// Performs execution of this command.
   override this.ProcessRecord() =
     let release: Release | null =
-      if Release.LatestReleasePattern.IsMatch this.Version then
-        Release.Latest
-      else
-        match SemanticVersion.TryParse this.Version with
-        | false, _ -> null
-        | true, semver -> Release.get semver |> Option.toObj
+      if Release.LatestReleasePattern.IsMatch this.Version then Release.Latest
+      else SemanticVersion.Parse this.Version |> Release.get |> Option.toObj
 
     this.WriteObject release
