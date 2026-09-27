@@ -12,6 +12,7 @@
 
 	AliasesToExport = @()
 	FunctionsToExport = @()
+	RequiredAssemblies = , "Binaries/FSharpCore.dll"
 	VariablesToExport = @()
 
 	CmdletsToExport = @(

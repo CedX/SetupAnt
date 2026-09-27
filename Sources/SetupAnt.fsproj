@@ -16,6 +16,7 @@
 		<Nullable>enable</Nullable>
 		<OutDir>../Binaries</OutDir>
 		<RootNamespace>Belin.SetupAnt</RootNamespace>
+		<SatelliteResourceLanguages>en</SatelliteResourceLanguages>
 		<TargetFramework>net10.0</TargetFramework>
 	</PropertyGroup>
 
