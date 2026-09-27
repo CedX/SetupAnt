@@ -2,7 +2,7 @@
 	DefaultCommandPrefix = "Ant"
 	ModuleVersion = "7.2.0"
 	PowerShellVersion = "7.6"
-	RootModule = "Sources/Main.psm1"
+	RootModule = "Binaries/Belin.SetupAnt.dll"
 
 	Author = "Cédric Belin <cedx@outlook.com>"
 	CompanyName = "Cedric-Belin.fr"

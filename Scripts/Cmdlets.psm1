@@ -2,6 +2,21 @@ using namespace System.Diagnostics.CodeAnalysis
 
 <#
 .SYNOPSIS
+	Builds the .NET solution and all of its dependencies.
+#>
+function Build-DotNetSolution {
+	param (
+		# The configuration to use for generating the project.
+		[Parameter(Position = 1)]
+		[string] $Configuration
+	)
+
+	$argumentList = $Configuration ? "--configuration", $Configuration : @()
+	dotnet build @argumentList
+}
+
+<#
+.SYNOPSIS
 	Creates a new Git tag.
 #>
 function New-GitTag {
