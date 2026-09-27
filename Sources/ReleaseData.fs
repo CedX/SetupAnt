@@ -3,10 +3,10 @@ namespace Belin.SetupAnt
 open System.Management.Automation
 
 /// Provides data about the Apache Ant releases.
-module ReleaseData =
+module internal ReleaseData =
 
   /// The version numbers of all Apache Ant releases.
-  let internal Versions: SemanticVersion list =
+  let Versions: SemanticVersion list =
     [
       "1.10.18"
       "1.10.17"
