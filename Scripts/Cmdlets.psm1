@@ -17,6 +17,26 @@ function Build-DotNetSolution {
 
 <#
 .SYNOPSIS
+	Invokes the FSharpLint static analyzer.
+#>
+function Invoke-FSharpLint {
+	param (
+		# The path to the file or directory to be analyzed.
+		[Parameter(Mandatory, Position = 1)]
+		[string[]] $Path,
+
+		# The path to the configuration file.
+		[ValidateScript({ Test-Path $_ -PathType Leaf }, ErrorMessage = "The specified configuration file does not exist.")]
+		[string] $Configuration
+	)
+
+	$argumentList = $Configuration ? "--lint-config", $Configuration : @()
+	$argumentList += $Path
+	dotnet fsharplint lint @argumentList
+}
+
+<#
+.SYNOPSIS
 	Creates a new Git tag.
 #>
 function New-GitTag {
@@ -29,6 +49,14 @@ function New-GitTag {
 
 	git tag $Name
 	git push origin $Name
+}
+
+<#
+.SYNOPSIS
+	Checks whether an update is available for the NuGet packages.
+#>
+function Test-NuGetPackageUpdate {
+	dotnet package list --outdated
 }
 
 <#
