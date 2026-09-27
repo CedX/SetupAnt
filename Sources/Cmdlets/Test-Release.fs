@@ -3,7 +3,7 @@ namespace Belin.SetupAnt.Cmdlets
 open Belin.SetupAnt
 open System.Management.Automation
 
-/// Finds a release that matches the specified version constraint.
+/// Gets a value indicating whether a release with the specified version exists.
 [<Cmdlet(VerbsDiagnostic.Test, "Release", DefaultParameterSetName = "Version")>]
 [<OutputType(typeof<bool>)>]
 type TestReleaseCommand() =

@@ -3,7 +3,16 @@ namespace Belin.SetupAnt.Cmdlets
 open Belin.SetupAnt
 open System.Management.Automation
 
-/// Finds a release that matches the specified version constraint.
+/// Creates a new release.
+[<Cmdlet(VerbsCommon.New, "Release")>]
+[<OutputType(typeof<Release>)>]
 type NewReleaseCommand() =
   inherit Cmdlet()
-  // TODO
+
+  /// The version number.
+  [<Parameter(Mandatory = true, Position = 1, ValueFromPipeline = true)>]
+  member val Version: SemanticVersion | null = null with get, set
+
+  /// Performs execution of this command.
+  override this.ProcessRecord() =
+    this.WriteObject { Version = nonNull this.Version }
