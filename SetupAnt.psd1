@@ -1,6 +1,6 @@
 @{
 	DefaultCommandPrefix = "Ant"
-	ModuleVersion = "7.1.0"
+	ModuleVersion = "7.2.0"
 	PowerShellVersion = "7.6"
 	RootModule = "Sources/Main.psm1"
 
@@ -11,10 +11,10 @@
 	GUID = "30b52520-21cd-44c4-aa11-b1f0dc085686"
 
 	AliasesToExport = @()
-	CmdletsToExport = @()
+	FunctionsToExport = @()
 	VariablesToExport = @()
 
-	FunctionsToExport = @(
+	CmdletsToExport = @(
 		"Find-Release"
 		"Get-Release"
 		"Install-Release"
