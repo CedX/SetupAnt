@@ -1,5 +1,5 @@
 "Updating the version number in the sources..."
-$version = (Import-PowerShellDataFile Lcov.psd1).ModuleVersion
+$version = (Import-PowerShellDataFile SetupAnt.psd1).ModuleVersion
 Get-ChildItem -Filter *.fsproj -Recurse | ForEach-Object {
 	(Get-Content $_ -Raw) -replace "<Version>\d+(\.\d+){2}</Version>", "<Version>$version</Version>" | Set-Content $_ -NoNewLine
 }
