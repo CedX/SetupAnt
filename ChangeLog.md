@@ -1,5 +1,8 @@
 # Changelog
 
+## Version [7.2.0](https://github.com/CedX/SetupAnt/compare/v7.1.0...v7.2.0)
+- Ported the source code to [F#](https://learn.microsoft.com/en-us/dotnet/fsharp).
+
 ## Version [7.1.0](https://github.com/CedX/SetupAnt/compare/v7.0.0...v7.1.0)
 - Added [Ant](https://ant.apache.org) 1.10.18 to the supported releases.
 
