@@ -88,7 +88,7 @@
 	"tupleParentheses": {"enabled": true},
 	"typedItemSpacing": {"enabled": true, "config": {"typedItemStyle": "SpaceAfter"}},
 	"typeNames": {"enabled": true, "config": {"naming": "PascalCase", "underscores": "None"}},
-	"typePrefixing": {"enabled": true, "config": {"mode": "Hybrid"}},
+	"typePrefixing": {"enabled": false},
 	"unionCasesNames": {"enabled": true, "config": {"naming": "PascalCase", "underscores": "None"}},
 	"unionDefinitionIndentation": {"enabled": true},
 	"unneededRecKeyword": {"enabled": true},
