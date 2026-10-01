@@ -16,7 +16,7 @@ type GetReleaseCommand() =
 
   /// Performs execution of this command.
   override this.ProcessRecord() =
-    let release: Release|null =
+    let release: Release | null =
       if Release.LatestReleasePattern.IsMatch this.Version then Release.Latest
       else SemanticVersion.Parse this.Version |> Release.get |> Option.toObj
 
