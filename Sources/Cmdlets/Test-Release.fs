@@ -11,11 +11,11 @@ type TestReleaseCommand() =
 
   /// The release to be tested.
   [<Parameter(Mandatory = true, ParameterSetName = "InputObject", ValueFromPipeline = true)>]
-  member val InputObject: Release|null = null with get, set
+  member val InputObject: Release | null = null with get, set
 
   /// The version number of the release to be tested.
   [<Parameter(Mandatory = true, ParameterSetName = "Version", Position = 1, ValueFromPipeline = true)>]
-  member val Version: SemanticVersion|null = null with get, set
+  member val Version: SemanticVersion | null = null with get, set
 
   /// Performs execution of this command.
   override this.ProcessRecord() =

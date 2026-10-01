@@ -11,7 +11,7 @@ type NewReleaseCommand() =
 
   /// The version number.
   [<Parameter(Mandatory = true, Position = 1, ValueFromPipeline = true)>]
-  member val Version: SemanticVersion|null = null with get, set
+  member val Version: SemanticVersion | null = null with get, set
 
   /// Performs execution of this command.
   override this.ProcessRecord() =
