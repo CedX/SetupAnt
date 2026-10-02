@@ -29,5 +29,5 @@
 		<Compile Include="ReleaseData.fs" />
 		<Compile Include="Release.fs" />
 		<Compile Include="Cmdlets/*.fs" />
-*	</ItemGroup>
+	</ItemGroup>
 </Project>
