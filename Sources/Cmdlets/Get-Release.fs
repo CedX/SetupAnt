@@ -5,8 +5,7 @@ open System.Management.Automation
 
 /// Gets the release corresponding to the specified version.
 /// Returns `null` if not found.
-[<Cmdlet(VerbsCommon.Get, "Release")>]
-[<OutputType(typeof<Release>)>]
+[<Cmdlet(VerbsCommon.Get, "Release"); OutputType(typeof<Release>)>]
 type GetReleaseCommand() =
   inherit Cmdlet()
 
