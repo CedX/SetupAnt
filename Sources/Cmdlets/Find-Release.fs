@@ -5,8 +5,7 @@ open System.Management.Automation
 
 /// Finds a release that matches the specified version constraint.
 /// Returns `null` if not found.
-[<Cmdlet(VerbsCommon.Find, "Release")>]
-[<OutputType(typeof<Release>)>]
+[<Cmdlet(VerbsCommon.Find, "Release"); OutputType(typeof<Release>)>]
 type FindReleaseCommand() =
   inherit Cmdlet()
 

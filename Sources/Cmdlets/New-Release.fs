@@ -4,8 +4,7 @@ open Belin.SetupAnt
 open System.Management.Automation
 
 /// Creates a new release.
-[<Cmdlet(VerbsCommon.New, "Release")>]
-[<OutputType(typeof<Release>)>]
+[<Cmdlet(VerbsCommon.New, "Release"); OutputType(typeof<Release>)>]
 type NewReleaseCommand() =
   inherit Cmdlet()
 

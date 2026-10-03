@@ -4,8 +4,7 @@ open Belin.SetupAnt
 open System.Management.Automation
 
 /// Gets a value indicating whether a release with the specified version exists.
-[<Cmdlet(VerbsDiagnostic.Test, "Release", DefaultParameterSetName = "Version")>]
-[<OutputType(typeof<bool>)>]
+[<Cmdlet(VerbsDiagnostic.Test, "Release", DefaultParameterSetName = "Version"); OutputType(typeof<bool>)>]
 type TestReleaseCommand() =
   inherit PSCmdlet()
 
