@@ -10,7 +10,6 @@
 	<PropertyGroup>
 		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
 		<AssemblyName>Belin.SetupAnt</AssemblyName>
-		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
 		<HotReloadAutoRestart>true</HotReloadAutoRestart>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
@@ -22,11 +21,10 @@
 
 	<ItemGroup>
 		<InternalsVisibleTo Include="$(AssemblyName).Tests" />
-		<PackageReference Include="System.Management.Automation" Version="7.6.6" />
+		<PackageReference Include="System.Management.Automation" Version="7.6.7" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<Compile Include="ReleaseData.fs" />
 		<Compile Include="Release.fs" />
 		<Compile Include="Cmdlets/*.fs" />
 	</ItemGroup>
