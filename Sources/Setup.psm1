@@ -1,38 +1,8 @@
-using namespace System.IO
-using module ./Release.psm1
-
 <#
 .SYNOPSIS
 	Manages the download and installation of Apache Ant.
 #>
 class Setup {
-
-	<#
-	.SYNOPSIS
-		The release to download and install.
-	#>
-	[ValidateNotNull()]
-	[Release] $Release
-
-	<#
-	.SYNOPSIS
-		Creates a new setup.
-	.PARAMETER Release
-		The release to download and install.
-	#>
-	Setup([Release] $Release) {
-		$this.Release = $Release
-	}
-
-	<#
-	.SYNOPSIS
-		Downloads and extracts the ZIP archive of Apache Ant.
-	.OUTPUTS
-		The path to the extracted directory.
-	#>
-	[string] Download() {
-		return $this.Download($false)
-	}
 
 	<#
 	.SYNOPSIS
@@ -55,16 +25,6 @@ class Setup {
 		$antHome = Join-Path $directory $folders[0].BaseName
 		if ($OptionalTasks) { $this.FetchOptionalTasks($antHome) }
 		return $antHome
-	}
-
-	<#
-	.SYNOPSIS
-		Installs Apache Ant, after downloading it.
-	.OUTPUTS
-		The path to the installation directory.
-	#>
-	[string] Install() {
-		return $this.Install($false)
 	}
 
 	<#
