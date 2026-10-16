@@ -24,8 +24,9 @@ type GetRelease() =
 
   /// Performs execution of this command.
   override this.ProcessRecord() =
-    let release: Release | null =
-      if Release.latestReleasePattern.IsMatch this.Version then Release.Latest
-      else Version.Parse this.Version |> Release.get |> Option.toObj
+    let release =
+      match Release.latestReleasePattern.IsMatch this.Version with
+      | true -> withNull Release.Latest
+      | false -> Version.Parse this.Version |> Release.get |> Option.toObj
 
     this.WriteObject release

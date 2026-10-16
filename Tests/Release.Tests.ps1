@@ -56,8 +56,7 @@ Describe "Get-Release" {
 
 	It "should return the latest release when '*' is used as version number" {
 		$latestRelease = Get-AntLatestRelease
-		"*" | Get-AntRelease | Should-BeSame $latestRelease
-		"Latest" | Get-AntRelease | Should-BeSame $latestRelease
+		"*", "Latest" | ForEach-Object { $_ | Get-AntRelease | Should-BeSame $latestRelease }
 	}
 }
 
