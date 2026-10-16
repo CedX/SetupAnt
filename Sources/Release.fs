@@ -2,6 +2,7 @@ namespace rec Belin.SetupAnt
 
 open System
 open System.IO
+open System.Management.Automation
 open System.Text.Json
 open System.Text.RegularExpressions
 
@@ -37,7 +38,31 @@ module Release =
 
   /// Finds a release that matches the specified version constraint.
   let find (versionConstraint: string): Release option =
-    None
+    let operatorString, versionString =
+      if latestReleasePattern.IsMatch versionConstraint then "=", string Latest.Version
+      elif Regex.IsMatch(versionConstraint, @"^\d") then ">=", versionConstraint
+      else
+        let constraintMatch = Regex.Match(versionConstraint, @"^([^\d]+)\d")
+        if constraintMatch.Success then constraintMatch.Groups[1].Value, Regex.Replace(versionConstraint, @"^[^\d]+", "")
+        else "", ""
+
+    let parsedOperator =
+      match operatorString with
+      | ">" -> Some (>)
+      | ">=" -> Some (>=)
+      | "=" -> Some (=)
+      | "<=" -> Some (<=)
+      | "<" -> Some (<)
+      | _ -> None
+
+    let parsedVersion =
+      match SemanticVersion.TryParse versionString with
+      | false, _ -> None
+      | true, value -> Some (nonNull value)
+
+    match parsedOperator, parsedVersion with
+    | Some compare, Some version -> data |> List.tryFind (fun release -> compare (SemanticVersion release.Version) version)
+    | _ -> None
 
   /// Gets the release corresponding to the specified version.
   let get (version: Version): Release option =
