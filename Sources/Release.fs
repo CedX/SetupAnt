@@ -14,7 +14,7 @@ type Release =
 
   /// The download URL.
   member this.Url: Uri =
-    let baseUrl = if this = Release.latest then "https://downloads.apache.org/ant/binaries/" else "https://archive.apache.org/dist/ant/binaries/"
+    let baseUrl = if this = Release.Latest then "https://downloads.apache.org/ant/binaries/" else "https://archive.apache.org/dist/ant/binaries/"
     Uri(Uri baseUrl, $"apache-ant-{this.Version}-bin.zip")
 
 /// Contains operations for working with Apache Ant releases.
@@ -29,7 +29,7 @@ module Release =
   let internal latestReleasePattern = Regex(@"^(\*|Latest)$", RegexOptions.IgnoreCase)
 
   /// The latest release.
-  let latest = data.Head
+  let Latest = data.Head
 
   /// Gets a value indicating whether a release with the specified version exists.
   let exists (version: Version): bool =
