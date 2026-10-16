@@ -1,11 +1,12 @@
 namespace Belin.SetupAnt.Cmdlets
 
 open Belin.SetupAnt
+open System
 open System.Management.Automation
 
 /// Gets a value indicating whether a release with the specified version exists.
 [<Cmdlet(VerbsDiagnostic.Test, "Release", DefaultParameterSetName = "Version"); OutputType(typeof<bool>)>]
-type TestReleaseCommand() =
+type TestRelease() =
   inherit PSCmdlet()
 
   /// The release to be tested.
@@ -14,9 +15,9 @@ type TestReleaseCommand() =
 
   /// The version number of the release to be tested.
   [<Parameter(Mandatory = true, ParameterSetName = "Version", Position = 1, ValueFromPipeline = true)>]
-  member val Version: SemanticVersion | null = null with get, set
+  member val Version: Version | null = null with get, set
 
   /// Performs execution of this command.
   override this.ProcessRecord() =
-    let semver = if this.ParameterSetName = "InputObject" then (nonNull this.InputObject).Version else nonNull this.Version
-    this.WriteObject (Release.exists semver)
+    let version = if this.ParameterSetName = "InputObject" then (nonNull this.InputObject).Version else nonNull this.Version
+    this.WriteObject (Release.exists version)
