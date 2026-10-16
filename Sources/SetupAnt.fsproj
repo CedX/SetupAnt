@@ -11,6 +11,7 @@
 		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
 		<AssemblyName>Belin.SetupAnt</AssemblyName>
 		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<HotReloadAutoRestart>true</HotReloadAutoRestart>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
