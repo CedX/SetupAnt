@@ -2,6 +2,7 @@
 
 ## Version [2026.10.0](https://github.com/CedX/SetupAnt/compare/v7.2.0...v2026.10.0)
 - Ported the cmdlets to [F#](https://learn.microsoft.com/en-us/dotnet/fsharp).
+- Added the `Get-LatestRelease` cmdlet.
 - Switched to a year-based versioning.
 
 ## Version [7.2.0](https://github.com/CedX/SetupAnt/compare/v7.1.0...v7.2.0)
