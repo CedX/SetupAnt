@@ -11,7 +11,7 @@ Describe "Find-Release" {
 
 	It "should return the release corresponding to the version constraint if it exists" {
 		$latestRelease = Get-AntLatestRelease
-		"*", "latest" | ForEach-Object { $_ | Find-AntRelease | Should-BeSame $latestRelease }
+		"*", "latest", "1" | ForEach-Object { $_ | Find-AntRelease | Should-BeSame $latestRelease }
 		"2", ">1.10.18", "?1.10", "abc" | ForEach-Object { $_ | Find-AntRelease | Should-BeNull }
 		("=1.8.2", "1.8.2"), ("<1.10", "1.9.16"), ("<=1.10", "1.10.0") | ForEach-Object { (Find-AntRelease $_[0])?.Version | Should-Be ([version] $_[1]) }
 	}
