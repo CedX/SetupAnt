@@ -19,5 +19,9 @@ type TestRelease() =
 
   /// Performs execution of this command.
   override this.ProcessRecord() =
-    let version = if this.ParameterSetName = "InputObject" then (nonNull this.InputObject).Version else nonNull this.Version
-    this.WriteObject (Release.exists version)
+    let version =
+      match this.ParameterSetName with
+      | nameof this.InputObject -> (nonNull this.InputObject).Version
+      | _ -> nonNull this.Version
+
+    version |> Release.exists |> this.WriteObject

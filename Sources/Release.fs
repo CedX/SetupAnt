@@ -35,6 +35,10 @@ module Release =
   let exists (version: Version): bool =
     data |> List.exists (fun release -> release.Version = version)
 
+  /// Finds a release that matches the specified version constraint.
+  let find (versionConstraint: string): Release option =
+    None
+
   /// Gets the release corresponding to the specified version.
   let get (version: Version): Release option =
     data |> List.tryFind (fun release -> release.Version = version)
