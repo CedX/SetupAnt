@@ -13,7 +13,7 @@ inputs:
     required: false
   version:
     description: The version constraint of the Apache Ant binary.
-    default: latest
+    default: Latest
     required: false
 
 runs:

@@ -5,6 +5,7 @@ open System
 open System.Management.Automation
 
 /// Installs Apache Ant, after downloading it.
+/// Returns the path to the installation directory.
 [<Cmdlet(VerbsLifecycle.Install, "Release", DefaultParameterSetName = "Constraint"); OutputType(typeof<string>)>]
 type InstallRelease() =
   inherit PSCmdlet()
@@ -34,4 +35,4 @@ type InstallRelease() =
       // TODO this.WriteObject outputPath
     | _ ->
       let ex = InvalidOperationException "No release matches the specified version constraint."
-      this.WriteError (ErrorRecord(ex, "Setup.Install", ErrorCategory.NotInstalled, input))
+      this.WriteError (ErrorRecord(ex, "Setup.Install", ErrorCategory.ObjectNotFound, input))
