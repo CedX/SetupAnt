@@ -10,7 +10,7 @@ type GetLatestRelease() =
   inherit Cmdlet()
 
   /// Performs execution of this command.
-  override this.ProcessRecord() = this.WriteObject Release.latest
+  override this.ProcessRecord() = this.WriteObject Release.Latest
 
 /// Gets the release corresponding to the specified version.
 /// Returns `null` if not found.
@@ -25,7 +25,7 @@ type GetRelease() =
   /// Performs execution of this command.
   override this.ProcessRecord() =
     let release: Release | null =
-      if Release.latestReleasePattern.IsMatch this.Version then Release.latest
+      if Release.latestReleasePattern.IsMatch this.Version then Release.Latest
       else Version.Parse this.Version |> Release.get |> Option.toObj
 
     this.WriteObject release
