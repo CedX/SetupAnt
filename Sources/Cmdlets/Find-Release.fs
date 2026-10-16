@@ -15,5 +15,4 @@ type FindRelease() =
 
   /// Performs execution of this command.
   override this.ProcessRecord() =
-    let release = Release.find this.Constraint
-    this.WriteObject (release |> Option.toObj)
+    this.Constraint |> Release.find |> Option.toObj |> this.WriteObject
