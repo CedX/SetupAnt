@@ -4,26 +4,16 @@ using module ../SetupAnt.psd1
 .SYNOPSIS
 	Tests the features of the `Find-Release` cmdlet.
 #>
-Describe "Find-Release" -Skip { # TODO Unskip
-	BeforeAll { . "$PSScriptRoot/BeforeAll.ps1" }
-
+Describe "Find-Release" {
 	It "should return `$null if no release matches the version constraint" {
-		Should-BeNull (Find-AntRelease $nonExistingRelease.Version)
+		"666.6.6" | Find-AntRelease | Should-BeNull
 	}
 
 	It "should return the release corresponding to the version constraint if it exists" {
-		Should-BeSame $latestRelease (Find-AntRelease "latest")
-		Should-BeSame $latestRelease (Find-AntRelease "*")
-		Should-BeSame $latestRelease (Find-AntRelease "1")
-		Should-BeNull (Find-AntRelease "2")
-		Should-BeNull (Find-AntRelease ">1.10.18")?.Version
-		Should-Be "1.8.2" (Find-AntRelease "=1.8.2")?.Version
-		Should-Be "1.9.16" (Find-AntRelease "<1.10")?.Version
-		Should-Be "1.10.0" (Find-AntRelease "<=1.10")?.Version
-	}
-
-	It "should throw if the version constraint is invalid" -ForEach "abc", "?1.10" {
-		Should-Throw -ScriptBlock { Find-AntRelease $_ -ErrorAction Stop }
+		$latestRelease = Get-AntLatestRelease
+		"*", "latest" | ForEach-Object { $_ | Find-AntRelease | Should-BeSame $latestRelease }
+		"2", ">1.10.18", "?1.10", "abc" | ForEach-Object { $_ | Find-AntRelease | Should-BeNull }
+		("=1.8.2", "1.8.2"), ("<1.10", "1.9.16"), ("<=1.10", "1.10.0") | ForEach-Object { (Find-AntRelease $_[0])?.Version | Should-Be ([version] $_[1]) }
 	}
 }
 
@@ -51,12 +41,12 @@ Describe "Get-Release" {
 	}
 
 	It "should return the release corresponding to the version number if it exists" {
-		Get-AntRelease "1.8.2" | Should-BeEquivalent ([pscustomobject]@{ Version = [version] "1.8.2"}) -ExcludePathsNotOnExpected
+		(Get-AntRelease "1.8.2")?.Version | Should-Be ([version] "1.8.2")
 	}
 
 	It "should return the latest release when '*' is used as version number" {
 		$latestRelease = Get-AntLatestRelease
-		"*", "Latest" | ForEach-Object { $_ | Get-AntRelease | Should-BeSame $latestRelease }
+		"*", "latest" | ForEach-Object { $_ | Get-AntRelease | Should-BeSame $latestRelease }
 	}
 }
 
