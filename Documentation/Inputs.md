@@ -12,7 +12,7 @@ Allowed values are:
 - a version specification: `<=1`, `>1.10`, etc.
 
 > [!NOTE]
-> The version constraint uses a very basic [syntax and algorithm](https://github.com/CedX/SetupAnt/blob/main/Sources/Release.psm1#L97), but it should suffice in most cases.  
+> The version constraint uses a very basic [syntax and algorithm](https://github.com/CedX/SetupAnt/blob/main/Sources/Release.fs#L40), but it should suffice in most cases.  
 > If this isn't enough, feel free to [open an issue](https://github.com/CedX/SetupAnt/issues).
 
 ## **optional-tasks**: boolean
