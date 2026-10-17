@@ -63,8 +63,8 @@ type Setup(release: Release) =
     let message = $"{startInfo.FileName} {startInfo.Arguments}"
     match Process.Start startInfo with
     | null -> raise (ApplicationFailedException message)
-    | startedProcess ->
-      use command = startedProcess
-      do! command.WaitForExitAsync()
-      if command.ExitCode <> 0 then raise (ApplicationFailedException message)
+    | disposable ->
+      use startedProcess = disposable
+      do! startedProcess.WaitForExitAsync()
+      if startedProcess.ExitCode <> 0 then raise (ApplicationFailedException message)
   }
