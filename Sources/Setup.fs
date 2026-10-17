@@ -46,7 +46,6 @@ type Setup(release: Release) =
 
     Environment.SetEnvironmentVariable("ANT_HOME", antHome)
     do! File.AppendAllTextAsync(nonNull (Environment.GetEnvironmentVariable "GITHUB_ENV"), $"ANT_HOME={antHome}")
-
     return antHome
   }
 
