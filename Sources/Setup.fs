@@ -63,7 +63,7 @@ type Setup(release: Release) =
     match Process.Start startInfo with
     | null -> raise (ApplicationFailedException startInfo.FileName)
     | startedProcess ->
-      use java = startedProcess
-      do! java.WaitForExitAsync()
-      if java.ExitCode <> 0 then raise (ApplicationFailedException startInfo.FileName)
+      use command = startedProcess
+      do! command.WaitForExitAsync()
+      if command.ExitCode <> 0 then raise (ApplicationFailedException startInfo.FileName)
   }
