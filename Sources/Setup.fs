@@ -21,7 +21,7 @@ type Setup(release: Release) =
   /// Returns the path to the extracted directory.
   member this.Download(?withOptionalTasks: bool): Task<string> = task {
     use httpClient = new HttpClient(Timeout = TimeSpan.FromMinutes 1L)
-    httpClient.DefaultRequestHeaders.Add("User-Agent", $".NET/{Environment.Version} | Belin.SetupAnt/{version.ToString 3}")
+    httpClient.DefaultRequestHeaders.Add("User-Agent", $"PowerShell/{PSVersionInfo.PSVersion} | Belin.SetupAnt/{version.ToString 3}")
 
     let! bytes = httpClient.GetByteArrayAsync release.Url
     let file = Path.GetTempFileName()
