@@ -51,14 +51,15 @@ type Setup(release: Release) =
 
   /// Fetches the external libraries required by Ant optional tasks.
   member private _.FetchOptionalTasks(antHome: string): Task = task {
-    let startInfo = ProcessStartInfo("java", CreateNoWindow = true, WorkingDirectory = antHome, arguments = [
+    let arguments = [
       "-jar"; "lib/ant-launcher.jar"
       "-buildfile"; "fetch.xml"
       "-Ddest=system"
       "-noinput"
       "-silent"
-    ])
+    ]
 
+    let startInfo = ProcessStartInfo("java", arguments, CreateNoWindow = true, WorkingDirectory = antHome)
     startInfo.Environment["ANT_HOME"] <- antHome
 
     let message = $"{startInfo.FileName} {startInfo.Arguments}"
