@@ -2,6 +2,6 @@ using module PSScriptAnalyzer
 using module ./Tools.psm1
 
 Write-Information "Performing the static analysis of source code..."
-Invoke-FSharpLint SetupAnt.slnx -Configuration Configuration/FSharpLint.json
+dotnet fsharplint lint --lint-config Configuration/FSharpLint.json (Get-Solution)
 $PSScriptRoot, "Tests" | Invoke-ScriptAnalyzer -Recurse
-Test-ModuleManifest SetupAnt.psd1 | Out-Null
+Test-ModuleManifest (Get-Manifest) | Out-Null
