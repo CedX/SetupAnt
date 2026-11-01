@@ -7,7 +7,7 @@
 			"request": "launch",
 			"preLaunchTask": "Build",
 			"program": "pwsh",
-			"args": ["-NoExit", "-NoProfile", "-Command", "Import-Module ${workspaceFolder}/SetupAnt.psd1"]
+			"args": ["-NoExit", "-NoProfile", "-Command", "Import-Module ${workspaceFolder}${/}SetupAnt.psd1"]
 		}
 	]
 }
