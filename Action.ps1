@@ -2,6 +2,7 @@
 using module ./SetupAnt.psd1
 
 $ErrorActionPreference = "Stop"
+$InformationPreference = "Continue"
 $PSNativeCommandUseErrorActionPreference = $true
 
 $release = $Env:SETUP_ANT_VERSION ? $Env:SETUP_ANT_VERSION : "Latest" | Find-AntRelease
